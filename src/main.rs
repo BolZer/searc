@@ -26,7 +26,7 @@ fn main() {
 
     assert_gtk_is_available();
 
-    let builder = Builder::from_string(include_str!("../assets/ui.glade"));
+    let builder = Builder::from_string(include_str!("../assets/interface.glade"));
     let window: ApplicationWindow = builder.get_object("main_window").unwrap();
     let provider = CssProvider::new();
     let select_dir_button: Button = builder.get_object("select_dir").unwrap();
@@ -57,8 +57,6 @@ fn download_and_patch_if_applicable(window: &ApplicationWindow) {
         println!("Der Scheiß existiert tatsächlich!");
         return;
     }
-
-   // println!(":{}", result.into_os_string().into_string().unwrap_or_default())
 }
 
 fn open_file_explorer(window: &ApplicationWindow, action: FileChooserAction, title: &str) -> PathBuf {
